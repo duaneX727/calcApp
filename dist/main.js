@@ -13,7 +13,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Screen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Screen */ "./src/components/Screen.jsx");
 /* harmony import */ var _components_ButtonBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ButtonBox */ "./src/components/ButtonBox.jsx");
 /* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Button */ "./src/components/Button.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _context_CalcContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./context/CalcContext */ "./src/context/CalcContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -23,10 +25,10 @@ __webpack_require__.r(__webpack_exports__);
 const btnValues = [["C", "+-", "%", "/"], [7, 8, 9, "x"], [4, 5, 6, "-"], [1, 2, 3, "+"], [0, ".", "="]];
 
 const App = () => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_components_Wrapper__WEBPACK_IMPORTED_MODULE_0__["default"], {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Screen__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_ButtonBox__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        children: btnValues.flat().map((btn, i) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_context_CalcContext__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_components_Wrapper__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Screen__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_ButtonBox__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: btnValues.flat().map((btn, i) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
           value: btn
         }, i))
       })]
@@ -104,11 +106,20 @@ const ButtonBox = _ref => {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _context_CalcContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../context/CalcContext */ "./src/context/CalcContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+ //import { Textfit } from 'react-textfit';
+
+
 
 
 const Screen = () => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+  const {
+    calc
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_CalcContext__WEBPACK_IMPORTED_MODULE_1__.CalcContext);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "screen",
     children: "5453987"
   });
@@ -139,6 +150,46 @@ const Wrapper = _ref => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Wrapper);
+
+/***/ }),
+
+/***/ "./src/context/CalcContext.js":
+/*!************************************!*\
+  !*** ./src/context/CalcContext.js ***!
+  \************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CalcContext": function() { return /* binding */ CalcContext; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+const CalcContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();
+
+const CalcProvider = _ref => {
+  let {
+    children
+  } = _ref;
+  const [calc, setCalc] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    sign: "",
+    num: 0,
+    res: 0
+  });
+  const providerValue = {
+    calc,
+    setCalc
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(CalcContext.Provider, {
+    value: providerValue,
+    children: children
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CalcProvider);
 
 /***/ }),
 
