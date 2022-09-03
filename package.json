@@ -20,7 +20,8 @@
   "homepage": "https://github.com/duaneX727/calcApp#readme",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-textfit": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
