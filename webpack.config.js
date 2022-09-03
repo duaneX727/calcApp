@@ -1,26 +1,51 @@
-const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+
+const path = require('path');
+// i
 module.exports = {
   mode: "development",
-  entry: path.resolve(__dirname__, './src/index.js'),
+
+  entry: {
+    main: path.resolve(__dirname, './src/index.js')
+  },
+
   output: {
-    path: path.resolve(__dirname,'./dist'),
-    filename: ['bundle.js'],
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    clean: true
   },
   module: {
     rules: [
+      {   
+        test:/\.css$/i,
+        use:[MiniCssExtractPlugin.loader,"css-loader"]
+      },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
-      },
+        use: {
+          loader: "babel-loader"
+        }
+      }
     ]
   },
+  plugins: [new MiniCssExtractPlugin({
+    filename: "main.css"
+  }), new HtmlWebpackPlugin({
+    title: "Calc App Project",
+    filename: 'index.html',
+    template: path.resolve(__dirname, 'src/index.html')
+  })],
   resolve: {
-    extensions: ['*','.js','.jsx'],
+    extensions: [".js", ".jsx"]
   },
+  devtool: "source-map",
   devServer: {
-    path: path.resolve(__dirname,'./dist'),
+    static: path.resolve(__dirname, 'dist'),
+    hot: true,
+    // static: "./dist",
     port: 5055
-  },
+  }
 }

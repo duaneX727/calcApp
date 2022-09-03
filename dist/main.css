@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*!*****************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/index.css ***!
+  \*****************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/index.css (1) ***!
+  \*********************************************************************/
 * {
   margin: 0;
   padding: 0;
@@ -54,3 +60,5 @@ body {
 .opt {
   background: #f79505;
 }
+
+/*# sourceMappingURL=main.css.map*/
