@@ -72,6 +72,22 @@ const Button = ({value}) => {
     })
    }
   }
+  // User click percent
+  const percentClick = () => {
+    setCalc({
+      num: (calc.num / 100),
+      res: (calc.res / 100),
+      sign: ""
+    })
+  }
+  // User clicks sign change
+  const chngSignClick = () => {
+    setCalc({
+      num: calc.num ? calc.num * -1 : 0,
+      res: calc.res ? calc.res * -1 : 0,
+      sign: ""
+    })
+  }
   const handleOperatorClick = () =>
   {
     console.log(value);
@@ -84,7 +100,8 @@ const Button = ({value}) => {
       '+': operatorClick,
       '-': operatorClick,
       '=': equalsClick,
-      // '%': modulusClick
+      '%': percentClick,
+      '+-': chngSignClick
     }
     if(results[value]){
       return results[value]();
