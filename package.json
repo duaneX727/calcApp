@@ -8,17 +8,9 @@
     "build": "cross-env NODE_ENV=production webpack",
     "build-dev": "webpack"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/duaneX727/calcApp.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/duaneX727/calcApp/issues"
-  },
-  "homepage": "https://github.com/duaneX727/calcApp#readme",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
