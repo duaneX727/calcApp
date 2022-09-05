@@ -3,9 +3,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 const path = require('path');
+let mode = "development";
 // i
 module.exports = {
-  mode: "development",
+  mode: process.env.NODE_ENV === "production" ?  "production": "development",
 
   entry: {
     main: path.resolve(__dirname, './src/index.js')
@@ -20,7 +21,10 @@ module.exports = {
     rules: [
       {   
         test:/\.css$/i,
-        use:[MiniCssExtractPlugin.loader,"css-loader"]
+        use:[{
+          loader:  MiniCssExtractPlugin.loader,
+          options: {publicPath: ""}
+        },"css-loader"]
       },
       {
         test: /\.jsx?$/,
